@@ -1,0 +1,23 @@
+### Testar a função passando Qty = 3
+GET http://localhost:4004/odata/v4/prova-btp/filtroMateriais(Qtd=3)
+
+### Testar a Action de Inserção (Caminho Feliz)
+POST http://localhost:4004/odata/v4/prova-btp/adicionarMaterial
+Content-Type: application/json
+
+{
+  "NumMat": "920",
+  "Nome": "Notebook Dell",
+  "Descr": "Notebook i7 16GB"
+}
+
+### Testar erro de Duplicidade (Rode o teste acima duas vezes)
+
+### Testar erro de campos faltando (Nome vazio)
+POST http://localhost:4004/odata/v4/prova-btp/adicionarMaterial
+Content-Type: application/json
+
+{
+  "NumMat": "930",
+  "Descr": "Teclado Mecânico"
+}
