@@ -15,10 +15,23 @@
 				rows="{viewModel>/tableMaterial}"
 				selectionMode="Single"
 				paste="onPaste"
-				ariaLabelledBy="title">
+				ariaLabelledBy="title"
+                visibleRowCountMode="Auto">
 				<extension>
 					<m:OverflowToolbar style="Clear">
-						<m:Title id="title" text="Products"/>
+                        <m:Title text="Materiais Cadastrados"/>
+                        <m:ToolbarSpacer/>
+                        <m:Label text="Filtrar Quantidade:" />
+                            <m:Input 
+                                width="150px" 
+                                value="{viewModel>/filtroQuantidade}" 
+                                placeholder="Ex: 5" 
+                                type="Number" />
+                            <m:Button 
+                                text="Buscar" 
+                                type="Emphasized" 
+                                icon="sap-icon://search" 
+                                press=".onPressFiltrar" />
 					</m:OverflowToolbar>
 				</extension>
 				<columns>

@@ -35,7 +35,13 @@ sap.ui.define([
             
             // 3. Chama a função para buscar no backend e preencher a Model
             this.oMaterialHandler.loadTableData();
-        }
+        },
+
+        // O gatilho do botão
+        onPressFiltrar: function () {
+            // Avisa o Handler para rodar a lógica de filtro que acabamos de criar
+            this.oMaterialHandler.filtrarMateriais();
+        }        
 
     });
 });

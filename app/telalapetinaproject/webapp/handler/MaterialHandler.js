@@ -43,6 +43,35 @@ sap.ui.define([
             }).catch(function (oError) {
                 console.error("Erro ao carregar materiais:", oError);
             });
+        },
+
+        // Filtro
+        filtrarMateriais: function () {
+            const oViewModel = this._oView.getModel("viewModel");
+            const sQuantidade = oViewModel.getProperty("/filtroQuantidade");
+
+            if (!sQuantidade) {
+                this.loadTableData();
+                return;
+            }
+
+            const oDataModel = this._oView.getModel();
+            
+            // 1ª CORREÇÃO: Usar o nome exato da função do backend
+            const oFunction = oDataModel.bindContext("/filtroMateriais(...)");
+            
+            // 2ª CORREÇÃO: Usar o nome exato do parâmetro do backend
+            oFunction.setParameter("Qtd", parseInt(sQuantidade, 10));
+
+            oFunction.execute().then(function () {
+                const oContext = oFunction.getBoundContext();
+                const aResultados = oContext.getObject().value || oContext.getObject(); 
+                
+                oViewModel.setProperty("/tableMaterial", aResultados);
+                
+            }).catch(function (oError) {
+                console.error("Erro ao executar o filtro:", oError);
+            });
         }
 
     });
