@@ -1,0 +1,74 @@
+<mvc:View controllerName="telalapetinaproject.controller.TelaLapetina01"
+   xmlns="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:m="sap.m"
+	xmlns:p="sap.m.plugins"
+    height="100%">
+	<m:Page
+		showHeader="false"
+		enableScrolling="false"
+		class="sapUiContentPadding">
+		<m:content>
+			<Table
+				rows="{viewModel>/tableMaterial}"
+				selectionMode="Single"
+				paste="onPaste"
+				ariaLabelledBy="title"
+                visibleRowCountMode="Auto">
+				<extension>
+					<m:OverflowToolbar style="Clear">
+                        <m:Title text="Materiais Cadastrados"/>
+                        <m:ToolbarSpacer/>
+
+						<m:Button 
+				            text="Novo Material" 
+        	    			type="Accept" 
+				            icon="sap-icon://add" 
+            				press=".onPressNovoMaterial" />
+
+                        <m:ToolbarSpacer/>	
+                        <m:Label text="Filtrar Quantidade:" />
+                            <m:Input 
+                                width="150px" 
+                                value="{viewModel>/filtroQuantidade}" 
+                                placeholder="Ex: 5" 
+                                type="Number" />
+                            <m:Button 
+                                text="Buscar" 
+                                type="Emphasized" 
+                                icon="sap-icon://search" 
+                                press=".onPressFiltrar" />
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column width="11rem">
+						<m:Label text="ID" />
+						<template>
+							<m:Text text="{viewModel>ID}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="11rem">
+						<m:Label text="Número do Material" />
+						<template>
+							<m:Text text="{viewModel>NumMat}" wrapping="false" />
+						</template>
+					</Column>      
+                    <Column width="30rem">
+						<m:Label text="Nome" />
+						<template>
+							<m:Text text="{viewModel>Nome}" wrapping="false" />
+						</template>
+					</Column>  
+                    <Column width="50rem">
+						<m:Label text="Descrição" />
+						<template>
+							<m:Text text="{viewModel>Descr}" wrapping="false" />
+						</template>
+					</Column>            
+				</columns>
+			</Table>
+		</m:content>
+	</m:Page>
+</mvc:View>

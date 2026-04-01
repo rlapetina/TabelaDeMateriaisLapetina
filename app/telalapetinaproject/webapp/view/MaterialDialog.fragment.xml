@@ -1,0 +1,29 @@
+<core:FragmentDefinition 
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core" 
+    xmlns:f="sap.ui.layout.form">
+    
+    <Dialog id="dialogNovoMaterial" title="Cadastrar Novo Material">
+        <content>
+            <f:SimpleForm editable="true" layout="ColumnLayout">
+                <f:content>
+                    
+                    <Label text="Cód. Material" required="true"/>
+                    <Input value="{viewModel>/novoMaterial/NumMat}" maxLength="20" />
+                    
+                    <Label text="Nome" required="true"/>
+                    <Input value="{viewModel>/novoMaterial/Nome}" />
+                    
+                    <Label text="Descrição" required="true"/>
+                    <Input value="{viewModel>/novoMaterial/Descr}" />
+                    
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <buttons>
+            <Button text="Salvar" type="Emphasized" press=".onPressSalvarMaterial" />
+            <Button text="Cancelar" type="Transparent" press=".onPressCancelarMaterial" />
+        </buttons>
+    </Dialog>
+    
+</core:FragmentDefinition>
