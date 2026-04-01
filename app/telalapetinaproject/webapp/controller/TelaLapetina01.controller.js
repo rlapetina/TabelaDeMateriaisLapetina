@@ -41,7 +41,19 @@ sap.ui.define([
         onPressFiltrar: function () {
             // Avisa o Handler para rodar a lógica de filtro que acabamos de criar
             this.oMaterialHandler.filtrarMateriais();
-        }        
+        } ,
+        
+        onPressNovoMaterial: function () {
+            this.oMaterialHandler.abrirDialogCadastro();
+        },
+
+        onPressSalvarMaterial: function () {
+            this.oMaterialHandler.salvarNovoMaterial();
+        },
+
+        onPressCancelarMaterial: function () {
+            this.oMaterialHandler.fecharDialogCadastro();
+        }
 
     });
 });

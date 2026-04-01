@@ -21,6 +21,14 @@
 					<m:OverflowToolbar style="Clear">
                         <m:Title text="Materiais Cadastrados"/>
                         <m:ToolbarSpacer/>
+
+						<m:Button 
+				            text="Novo Material" 
+        	    			type="Accept" 
+				            icon="sap-icon://add" 
+            				press=".onPressNovoMaterial" />
+
+                        <m:ToolbarSpacer/>	
                         <m:Label text="Filtrar Quantidade:" />
                             <m:Input 
                                 width="150px" 
